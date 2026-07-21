@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNote">
         <activity
-            android:name="com.syaiful.mynotemaster.MainActivity"
+            android:name="com.naufal.mynote.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MyNote"

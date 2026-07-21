@@ -1,7 +1,7 @@
-package com.syaiful.mynotemaster.data
+package com.naufal.mynote.data
 
 import androidx.room.*
-import com.syaiful.mynotemaster.model.Note
+import com.naufal.mynote.model.Note
 import kotlinx.coroutines.flow.Flow
 
 @Dao

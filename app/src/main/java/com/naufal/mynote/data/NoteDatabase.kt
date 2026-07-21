@@ -1,10 +1,10 @@
-package com.syaiful.mynotemaster.data
+package com.naufal.mynote.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.syaiful.mynotemaster.model.Note
+import com.naufal.mynote.model.Note
 
 @Database(entities = [Note::class], version = 1, exportSchema = false)
 abstract class NoteDatabase : RoomDatabase() {

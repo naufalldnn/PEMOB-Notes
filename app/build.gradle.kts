@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.syaiful.mynotemaster"
+    namespace = "com.naufal.mynote"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.syaiful.mynotemaster"
+        applicationId = "com.naufal.mynote"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

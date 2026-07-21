@@ -1,6 +1,4 @@
-package com.syaiful.mynotemaster.navigation
-
-
+package com.naufal.mynote.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -9,33 +7,22 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.syaiful.mynotemaster.ui.screens.DashboardScreen
-import com.syaiful.mynotemaster.ui.screens.EditorScreen
-import com.syaiful.mynotemaster.viewmodel.NoteViewModel
+import com.naufal.mynote.ui.screens.DashboardScreen
+import com.naufal.mynote.ui.screens.EditorScreen
+import com.naufal.mynote.viewmodel.NoteViewModel
 
-/**
- * NavGraph = "peta jalan" aplikasi: layar apa saja yang ada
- * dan bagaimana cara berpindah di antaranya.
- */
 @Composable
 fun MyNoteNavGraph() {
     val navController = rememberNavController()
-
-    // ViewModel dibuat DI SINI (level NavGraph), lalu dibagikan ke kedua layar.
-    // Dengan begitu Dashboard dan Editor melihat DATA YANG SAMA.
-    // Analogi: satu papan tulis di ruang guru yang dilihat semua kelas.
     val noteViewModel: NoteViewModel = viewModel()
 
     NavHost(
         navController = navController,
         startDestination = Screen.Dashboard.route
     ) {
-        // ── Layar 1: Dashboard ─────────────────────────────────────────
         composable(route = Screen.Dashboard.route) {
             DashboardScreen(
                 viewModel = noteViewModel,
-                // Event navigasi DIHOIST ke sini: layar tidak tahu-menahu
-                // soal navController → layar mudah di-preview & di-test.
                 onAddNote = {
                     navController.navigate(Screen.Editor.buildRoute())
                 },
@@ -45,13 +32,12 @@ fun MyNoteNavGraph() {
             )
         }
 
-        // ── Layar 2: Editor (Create & Edit) ────────────────────────────
         composable(
             route = Screen.Editor.route,
             arguments = listOf(
                 navArgument(Screen.Editor.ARG_NOTE_ID) {
                     type = NavType.LongType
-                    defaultValue = Screen.Editor.NO_ID // tanpa argumen = mode CREATE
+                    defaultValue = Screen.Editor.NO_ID
                 }
             )
         ) { backStackEntry ->
@@ -61,9 +47,6 @@ fun MyNoteNavGraph() {
             EditorScreen(
                 viewModel = noteViewModel,
                 noteId = noteId,
-                // popBackStack() = "tekan tombol back secara programatik".
-                // Dashboard TIDAK dibuat ulang — ia masih ada di back stack
-                // dan otomatis menampilkan data terbaru dari StateFlow.
                 onNavigateBack = { navController.popBackStack() }
             )
         }

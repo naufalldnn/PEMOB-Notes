@@ -1,0 +1,24 @@
+# Tasks - MyNote Rebranding and Migration
+
+- `[x]` Complete Package Migration to `com.naufal.mynote`
+    - `[x]` Update `build.gradle.kts` (namespace, applicationId)
+    - `[x]` Update `AndroidManifest.xml`
+    - `[x]` Relocate source files and update package/imports (Main)
+    - `[x]` Relocate test files and update package/imports (Test & AndroidTest)
+    - `[x]` Delete old package directories
+    - `[x]` Project-wide search for zero old references
+- `[x]` UI Rebranding (Material 3 - Modern Productivity)
+    - `[x]` Update `Color.kt` with Indigo & Lavender palette
+    - `[x]` Update `Theme.kt` with new ColorScheme
+    - `[x]` Style `DashboardScreen.kt` (Rounded corners, new colors,FAB)
+    - `[x]` Style `EditorScreen.kt` (Rounded corners, theme consistency)
+- `[x]` Code Cleanup
+    - `[x]` Remove tutorial, educational, and TODO comments
+    - `[x]` Remove unused imports and dead code
+- `[x]` Documentation & Git
+    - `[x]` Create professional `README.md`
+    - `[x]` Update `.gitignore`
+- `[x]` Final Verification
+    - `[x]` Gradle Sync and Build
+    - `[x]` Functional Verification (Create, Edit, Delete, Pin, Search, Persistence)
+    - `[x]` UI/UX Bug Check (No blank screens, Delete button visibility)
