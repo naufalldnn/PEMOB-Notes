@@ -1,4 +1,8 @@
 # MyNote
+<img src="https://github.com/user-attachments/assets/0d73cb08-9de3-408e-ba33-04ca5a63c17b" alt="Screenshot 1" width="250" /> 
+<img src="https://github.com/user-attachments/assets/ece937d5-56e0-460f-8891-5c088dec3a2b" alt="Screenshot 2" width="250" /> 
+<img src="https://github.com/user-attachments/assets/e3dd31a5-67ba-4af5-803c-8b991eb4f771" alt="Screenshot 3" width="250" />
+
 
 ## Deskripsi
 
