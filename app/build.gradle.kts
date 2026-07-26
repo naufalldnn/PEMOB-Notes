@@ -45,6 +45,7 @@ android {
 
 dependencies {
 
+    implementation(libs.gson)
     implementation(platform(libs.androidx.compose.bom))
 
     implementation(libs.androidx.core.ktx)

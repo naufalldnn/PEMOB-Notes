@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.naufal.mynote.ui.screens.DashboardScreen
 import com.naufal.mynote.ui.screens.EditorScreen
+import com.naufal.mynote.ui.screens.AboutScreen
 import com.naufal.mynote.viewmodel.NoteViewModel
 
 @Composable
@@ -28,8 +29,15 @@ fun MyNoteNavGraph() {
                 },
                 onNoteClick = { noteId ->
                     navController.navigate(Screen.Editor.buildRoute(noteId))
+                },
+                onAboutClick = {
+                    navController.navigate(Screen.About.route)
                 }
             )
+        }
+
+        composable(route = Screen.About.route) {
+            AboutScreen(onNavigateBack = { navController.popBackStack() })
         }
 
         composable(

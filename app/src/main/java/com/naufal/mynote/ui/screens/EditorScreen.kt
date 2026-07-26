@@ -40,7 +40,7 @@ fun EditorScreen(
     EditorContent(
         isEditMode = isEditMode,
         existingContent = existingNote?.content.orEmpty(),
-        existingColor = existingNote?.color ?: NoteIndigo.toArgb().toLong(),
+        existingColor = existingNote?.color ?: NoteYellow.toArgb().toLong(),
         existingIsPinned = existingNote?.isPinned ?: false,
         onSave = { content, color, isPinned ->
             viewModel.saveNote(
@@ -77,7 +77,7 @@ fun EditorContent(
     var isPinned by rememberSaveable { mutableStateOf(existingIsPinned) }
 
     val colors = listOf(
-        NoteIndigo, NoteLavender, NoteDeepPurple, NoteBlue, NoteCyan, NoteWhite
+        NoteYellow, NoteGreen, NoteBlue, NotePink, NotePurple, NoteGray
     )
 
     Scaffold(
@@ -189,7 +189,7 @@ fun EditorPreview() {
         EditorContent(
             isEditMode = true,
             existingContent = "This is an existing note.",
-            existingColor = NoteLavender.toArgb().toLong(),
+            existingColor = NoteYellow.toArgb().toLong(),
             existingIsPinned = true,
             onSave = { _, _, _ -> },
             onDelete = {},

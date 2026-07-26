@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material.icons.rounded.PushPin
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.*
@@ -29,7 +30,8 @@ import java.util.*
 fun DashboardScreen(
     viewModel: NoteViewModel,
     onAddNote: () -> Unit,
-    onNoteClick: (Long) -> Unit
+    onNoteClick: (Long) -> Unit,
+    onAboutClick: () -> Unit
 ) {
     val notes by viewModel.notes.collectAsStateWithLifecycle()
     var searchQuery by remember { mutableStateOf("") }
@@ -44,7 +46,8 @@ fun DashboardScreen(
         searchQuery = searchQuery,
         onSearchQueryChange = { searchQuery = it },
         onAddNote = onAddNote,
-        onNoteClick = onNoteClick
+        onNoteClick = onNoteClick,
+        onAboutClick = onAboutClick
     )
 }
 
@@ -55,8 +58,11 @@ fun DashboardContent(
     searchQuery: String,
     onSearchQueryChange: (String) -> Unit,
     onAddNote: () -> Unit,
-    onNoteClick: (Long) -> Unit
+    onNoteClick: (Long) -> Unit,
+    onAboutClick: () -> Unit
 ) {
+    var showMenu by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -66,6 +72,23 @@ fun DashboardContent(
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.ExtraBold
                     ) 
+                },
+                actions = {
+                    IconButton(onClick = { showMenu = true }) {
+                        Icon(Icons.Rounded.MoreVert, contentDescription = "Menu")
+                    }
+                    DropdownMenu(
+                        expanded = showMenu,
+                        onDismissRequest = { showMenu = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("About") },
+                            onClick = {
+                                showMenu = false
+                                onAboutClick()
+                            }
+                        )
+                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
@@ -203,13 +226,14 @@ fun DashboardPreview() {
     MyNoteTheme {
         DashboardContent(
             notes = listOf(
-                Note(id = 1, content = "Example Note 1", isPinned = true, color = NoteIndigo.toArgb().toLong()),
-                Note(id = 2, content = "Example Note 2", isPinned = false, color = NoteLavender.toArgb().toLong())
+                Note(id = 1, content = "Example Note 1", isPinned = true, color = NoteYellow.toArgb().toLong()),
+                Note(id = 2, content = "Example Note 2", isPinned = false, color = NoteGreen.toArgb().toLong())
             ),
             searchQuery = "",
             onSearchQueryChange = {},
             onAddNote = {},
-            onNoteClick = {}
+            onNoteClick = {},
+            onAboutClick = {}
         )
     }
 }
