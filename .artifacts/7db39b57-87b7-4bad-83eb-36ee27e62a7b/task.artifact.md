@@ -1,2 +1,0 @@
-- [x] Add `kotlin-android` plugin to root `build.gradle.kts`
-- [x] Run Gradle sync to verify fix
