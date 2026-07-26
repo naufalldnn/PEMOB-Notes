@@ -4,6 +4,13 @@
 <img src="https://github.com/user-attachments/assets/e3dd31a5-67ba-4af5-803c-8b991eb4f771" alt="Screenshot 3" width="250" />
 
 
+## 📱 APK Siap Instal
+
+File APK sudah di-build dan bisa langsung diinstal di HP Android untuk di-test. 
+
+- **Nama file:** `note.apk`
+- **Lokasi file:** `MyNoteApp/app/build/outputs/apk/debug/`
+
 ## Deskripsi
 
 Project ini dibuat sebagai salah satu tugas mata kuliah **Pemrograman Mobile** menggunakan Kotlin. Aplikasi digunakan untuk membuat, mengubah, menghapus, dan mengelola catatan dengan tampilan Material 3.
